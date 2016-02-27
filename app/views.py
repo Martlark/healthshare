@@ -135,6 +135,8 @@ def question(id):
             return redirect(url_for('question',id=id))
 
         user = g.user
+        question_form.title.data = question.title
+        question_form.body.data = question.body
         return render_template("question.html",
                                title='Question',
                                user=user,

@@ -26,8 +26,8 @@ function PageQuestion(){
     }
     
     function editQuestion(){
-        $('#div_display_question').fadeOut();
-        $('#div_edit_question').fadeIn();
+        $('#div_display_question').hide();
+        $('#div_edit_question').show();
         $('form[name="submit_answer"]').fadeOut();
     }
     

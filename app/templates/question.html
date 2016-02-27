@@ -3,19 +3,20 @@
 <form name="update_question" action="/question/{{question.id}}" method="post">
     {{ question_form.hidden_tag() }}
     <div id='div_display_question'>
-        <h1>{{ question.title }}!</h1>
-        <h2>{{ question.body }}!</h2>
+        <h1>{{ question.title }}</h1>
+        <h2>{{ question.body }}</h2>
         <button id='button_edit_question'>Edit Question</button>
     </div>
     <div id='div_edit_question' style='display:none'>
+        <h1>Make your changes to the question and then press 'Update'</h1>
         <table>
             <tr>
                 <td><label for={{question_form.title.id}}>Title</label></td>
-                <td>{{ question_form.title(size=30, maxlength=140, value=question.title) }}</td>
+                <td>{{ question_form.title(size=30, maxlength=140) }}</td>
             </tr>
             <tr>
                 <td><label for={{question_form.body.id}}>Question</label></td>
-                <td>{{ question_form.body(size=30, maxlength=30000, value=question.body, cols=50, rows=10) }}</td>
+                <td>{{ question_form.body(size=30, maxlength=30000, cols=50, rows=10) }}</td>
             </tr>
         </table>
         <input type="submit" value="Update">
@@ -26,16 +27,14 @@
     <h3>Answer this question:</h3>
     <table>
         <tr>
-            <td><label for="{{ answer_form.body.id }}">Answer</label></td>
             <td>{{ answer_form.body(size=30, maxlength=30000, cols=50, rows=5) }}</td>
             <td>
-            {% for error in answer_form.body.errors %}
-            <span style="color: red;">[{{ error }}]</span><br>
-            {% endfor %}
+                {% for error in answer_form.body.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+                {% endfor %}
             </td>
         </tr>
         <tr>
-            <td></td>
             <td><input type="submit" value="Submit Answer"></td>
             <td></td>
         </tr>
