@@ -1,0 +1,11 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ user.email }}</h1>
+  <h2>last seen at: {{ user.timestamp }}</h2>
+  <hr>
+  {% for post in user.posts %}
+    {% include 'post.html' %}
+  {% endfor %}
+{% endblock %}

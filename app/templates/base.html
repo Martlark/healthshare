@@ -1,0 +1,33 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - Health Questions</title>
+    {% else %}
+    <title>Health Questions</title>
+    {% endif %}
+    <link rel="stylesheet" href="/static/style.css"></link> 
+    <script src="/static/jquery-2.2.1.min.js"></script>
+    <script src="/static/utility.js"></script>
+    <script src="/static/app.js"></script>
+  </head>
+  <body>
+    <header>
+        Health Questions:
+        <a href="{{ url_for('index') }}">Home</a>
+        {% if g.user.is_authenticated %}
+        | <a href="{{ url_for('user', email=g.user.email) }}">Your Profile</a>
+        | <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+    </header>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flash_messages">
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>

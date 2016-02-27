@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<form name="update_question" action="/question/{{question.id}}" method="post">
+    {{ question_form.hidden_tag() }}
+    <div id='div_display_question'>
+        <h1>{{ question.title }}!</h1>
+        <h2>{{ question.body }}!</h2>
+        <button id='button_edit_question'>Edit Question</button>
+    </div>
+    <div id='div_edit_question' style='display:none'>
+        <table>
+            <tr>
+                <td><label for={{question_form.title.id}}>Title</label></td>
+                <td>{{ question_form.title(size=30, maxlength=140, value=question.title) }}</td>
+            </tr>
+            <tr>
+                <td><label for={{question_form.body.id}}>Question</label></td>
+                <td>{{ question_form.body(size=30, maxlength=30000, value=question.body, cols=50, rows=10) }}</td>
+            </tr>
+        </table>
+        <input type="submit" value="Update">
+    </div>
+</form>
+<form name="submit_answer" action="/question/{{question.id}}" method="post">
+    {{ answer_form.hidden_tag() }}
+    <h3>Answer this question:</h3>
+    <table>
+        <tr>
+            <td><label for="{{ answer_form.body.id }}">Answer</label></td>
+            <td>{{ answer_form.body(size=30, maxlength=30000, cols=50, rows=5) }}</td>
+            <td>
+            {% for error in answer_form.body.errors %}
+            <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit Answer"></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
+<hr>
+<h2>Answers</h2>
+{% for answer in question.answers %}
+    {% include 'answer.html' %}
+{% endfor %}
+
+<script>
+var page = new PageQuestion();
+$(document).ready(function(){
+    page.init();
+})
+</script>
+
+{% endblock %}

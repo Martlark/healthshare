@@ -1,0 +1,10 @@
+<div class="answer">
+    <h2>{{ answer.title }}</h2>
+    <h5>{{ answer.timestamp.strftime('%Y-%m-%d %H:%M') }}</h5>
+    <h5><i>{{ answer.author.email }}</i></h5>
+    <p>{{ answer.body }}</p>
+    <p>Votes: <span id="total_vote_{{answer.id}}">{{answer.up_vote - answer.down_vote}}</span></p>
+    <button class="button_answer_vote up" data-direction="up" data-id="{{answer.id}}">Up Vote</button>
+    <button class="button_answer_vote down" data-direction="down" data-id="{{answer.id}}">Down Vote</button>
+    <span class="message" id="message_vote_{{answer.id}}"></span>
+</div>

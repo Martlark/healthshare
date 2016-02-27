@@ -1,0 +1,22 @@
+.new_post {
+    background-color: yellow;
+}
+
+.post {
+    background-color: #d3d3d3;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+header {
+    background-color: #d3d3d3;
+}
+
+.post p {
+    margin-left: 2em;
+}
+
+a:visited, a {
+    text-decoration: none;
+    color: blue;
+}
