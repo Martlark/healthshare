@@ -11,7 +11,7 @@ To install.
     $ sudo pip install --upgrade virtualenv
 
 
-2. Pull from git.
+2. Clone from git.
 
 3. Run these commands to setup.
 
