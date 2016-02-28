@@ -17,8 +17,6 @@
         {% if g.user.is_authenticated %}
         | <a href="{{ url_for('user', email=g.user.email) }}">Your Profile</a>
         | <a href="{{ url_for('logout') }}">Logout</a>
-        {{ g.user.timestamp.strftime('%Y-%m-%d %H:%M') }}
-        {{ g.user.previous_timestamp.strftime('%Y-%m-%d %H:%M') }}
         {% endif %}
     </header>
     {% with messages = get_flashed_messages() %}
