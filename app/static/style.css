@@ -12,6 +12,14 @@ header {
     background-color: #d3d3d3;
 }
 
+#div_display_question h1{
+    color: blue;
+}
+
+#div_display_question h2{
+    margin-left: 2em;
+}
+
 .post p {
     margin-left: 2em;
 }

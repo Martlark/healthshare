@@ -31,6 +31,7 @@
     </form>
     <hr>
 <h2>Current Questions</h2>
+{{previous_timestamp.strftime('%Y-%m-%d %H:%M')}}
 {% for post in posts %}
 {% include 'post.html' %}
 {% endfor %}
