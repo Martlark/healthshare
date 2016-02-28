@@ -1,7 +1,10 @@
-<div class="post {%if previous_timestamp and previous_timestamp < post.timestamp %}new_post{% endif %}">
+<div class="post {%if previous_timestamp < post.timestamp %}new_post{% endif %}">
+    {%if previous_timestamp < post.timestamp %}
+        <h3>New Question!</h3>
+    {% endif %}
     <h2><a title="View this question" href="{{url_for('question',id=post.id)}}">{{ post.title }}</a></h2>
     <h4>{{ post.author.email }}</h4>
-    <h5>{{ post.timestamp.strftime('%Y-%m-%d %H:%M') }}</h5>
+    <h5>{{ post.timestamp}}</h5>
     <h5>Votes: {{post.votes}}</h5>
     <p>{{ post.body }}</p>
 </div>
