@@ -3,8 +3,11 @@ To install.
 1. install the python tools required.
 
     $ sudo apt-get -y install git
+    
     $ sudo apt-get -y install python-pip python-dev build-essential
+    
     $ sudo pip install --upgrade pip
+    
     $ sudo pip install --upgrade virtualenv
 
 
